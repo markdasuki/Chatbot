@@ -1,5 +1,20 @@
+######################################################################
+#
+# Raphael Santo Domingo, Mark Dasuki
+# CSci 4511W - Artificial Intelligence
+# 05/07/15
+#
+# Final Project: Nishad Chat Bot
+#
 # Based on an Eliza implementation by Joe Strout <joe@strout.net>,
 # Jeff Epler <jepler@inetnebr.com>, and Jez Higgins <jez@jezuk.co.uk>.
+#
+# *************************** README *********************************
+# Running this project requires Python 2.8 (or higher) installed
+# along with the NLTK platform.
+# ********************************************************************
+#
+######################################################################
 from __future__ import print_function
 
 import re
@@ -96,24 +111,6 @@ class Chat(object):
         return response
 
     def respond(self, str):
-        """
-        Generate a response to the user input.
-
-        :type str: str
-        :param str: The string to be mapped
-        :rtype: str
-        """
-        
-        # check for repititious user inputs
-        if str.lower() == self._repeated_input.lower():
-            self._repition_count += 1
-            if self._repition_count >= 2 and '?' not in str:
-                return random.choice(self._repeated_input_response)
-            elif self._repition_count >= 2 and '?' in str:
-                return random.choice(self._repeated_input_response_Q)
-        else:
-            self._repition_count = 1
-            self._repeated_input = str
 
         # check each pattern
         for (pattern, response) in self._pairs:

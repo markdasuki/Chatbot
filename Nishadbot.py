@@ -1,5 +1,21 @@
+######################################################################
+#
+# Raphael Santo Domingo, Mark Dasuki
+# CSci 4511W - Artificial Intelligence
+# 05/07/15
+#
+# Final Project: Nishad Chat Bot
+#
 # Based on an Eliza implementation by Joe Strout <joe@strout.net>,
 # Jeff Epler <jepler@inetnebr.com>, and Jez Higgins <jez@jezuk.co.uk>.
+#
+# *************************** README *********************************
+# Running this project requires Python 2.8 (or higher) installed
+# along with the NLTK platform.
+# ********************************************************************
+#
+######################################################################
+
 from __future__ import print_function
 from ChatUtil import Chat, reflections
 
@@ -259,6 +275,10 @@ pairs = (
     "We've got a math genius over here.",
     "%1 does not equal %2.")),
 
+  (r'(.*) with (.*) lab\?',
+  ( "Sure, what do you need help with?",
+    "Sure, what about %2 do you need help with?")),
+
   (r'(.*)\?',
   ( "Why do you want to know?",
     "First consider whether you can answer that on your own.",
@@ -277,9 +297,9 @@ pairs = (
     "See ya.",
     "Alright then.")),
 
-  (r'(.*) with (.*) lab\?',
-  ( "Sure, what do you need help with?",
-    "Sure, what about %2 do you need help with?")),
+  (r'User input is typed here',
+  ( "And chat bot output is here.",
+    "And chat bot output is here.")),
 
   (r'(.*)',
   ( "If you say so.",
