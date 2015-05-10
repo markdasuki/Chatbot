@@ -14,8 +14,6 @@
 # ********************************************************************
 #
 ######################################################################
-from __future__ import print_function
-
 import re
 import random
 
@@ -93,6 +91,13 @@ class Chat(object):
                 self._reflections[mo.string[mo.start():mo.end()]],
                     str.lower())
 
+    def _handle_repitition(self, input):
+        self._repition_count += 1
+        if self._repition_count >= 2 and '?' not in input:
+            return random.choice(self._repeated_input_response)
+        elif self._repition_count >= 2 and '?' in input:
+            return random.choice(self._repeated_input_response_Q)
+
     def _sanitize_punctuation(self, subject):
         chars_to_remove = ['.', '!', '?']
         return subject.translate(None, ''.join(chars_to_remove))
@@ -109,6 +114,20 @@ class Chat(object):
         return response
 
     def respond(self, str):
+        """
+        Generate a response to the user input.
+
+        :type str: str
+        :param str: The string to be mapped
+        :rtype: str
+        """
+        # check for repititious user inputs
+        if str.lower() == self._repeated_input.lower():
+            str = self._handle_repitition(str)
+            return str
+        else:
+            self._repition_count = 1
+            self._repeated_input = str
 
         # check each pattern
         for (pattern, response) in self._pairs:
