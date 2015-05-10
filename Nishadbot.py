@@ -10,8 +10,7 @@
 # Jeff Epler <jepler@inetnebr.com>, and Jez Higgins <jez@jezuk.co.uk>.
 #
 # *************************** README *********************************
-# Running this project requires Python 2.8 (or higher) installed
-# along with the NLTK platform.
+# Running this project requires Python 2.8 (or higher) installed.
 # ********************************************************************
 #
 ######################################################################

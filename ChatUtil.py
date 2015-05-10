@@ -10,8 +10,7 @@
 # Jeff Epler <jepler@inetnebr.com>, and Jez Higgins <jez@jezuk.co.uk>.
 #
 # *************************** README *********************************
-# Running this project requires Python 2.8 (or higher) installed
-# along with the NLTK platform.
+# Running this project requires Python 2.8 (or higher) installed.
 # ********************************************************************
 #
 ######################################################################
@@ -19,7 +18,6 @@ from __future__ import print_function
 
 import re
 import random
-from nltk import compat
 
 reflections = {
   "i am"       : "you are",
@@ -131,7 +129,7 @@ class Chat(object):
         input = ""
         while input != quit:
             input = quit
-            try: input = compat.raw_input(">")
+            try: input = raw_input(">")
             except EOFError:
                 print(input)
             if input:
